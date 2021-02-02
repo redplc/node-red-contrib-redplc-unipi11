@@ -1,0 +1,102 @@
+<!--
+  Copyright 2021 Ocean (iot.redplc@gmail.com).
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/javascript">
+    RED.nodes.registerType('unipi11', {
+        category: 'redPlc modules',
+        color: 'ORANGE',
+        paletteLabel: 'Unipi 1.1',
+        defaults: {
+            addressdi: { value: 0, required: true, validate: function (v) { return RED.validators.number(v) && (v >= 0) && (v <= 999); } },
+            addressdo: { value: 0, required: true, validate: function (v) { return RED.validators.number(v) && (v >= 0) && (v <= 999); } },
+            addressai: { value: 0, required: true, validate: function (v) { return RED.validators.number(v) && (v >= 0) && (v <= 999); } },
+            mode0: { value: "0", required: true },
+            mode1: { value: "0", required: true },
+            factor0: { value: 1, required: true, validate: function (v) { return !isNaN(Number(v)); } },
+            factor1: { value: 1, required: true, validate: function (v) { return !isNaN(Number(v)); } },
+            offset0: { value: 0, required: true, validate: function (v) { return !isNaN(Number(v)); } },
+            offset1: { value: 0, required: true, validate: function (v) { return !isNaN(Number(v)); } },
+            disableai: { value: false },
+        },
+        inputs: 1,
+        outputs: 1,
+        inputLabels: "in:string",
+        outputLabels: ["out:string"],
+        icon: "rpi.svg",
+        label: "Unipi 1.1",
+    });
+</script>
+
+<script type="text/html" data-template-name="unipi11">
+    <div class="form-row">
+        <label style="width:100%; border-bottom: 1px solid #eee;">Unipi 1.1 Digital Input</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-addressdi"><i class="fa fa-list"></i> Address <b>&nbsp;I<b></label>
+        <input id="node-input-addressdi" placeholder="Address" value=0 input type="number" min="0" max="999" required style="width: auto;">
+    </div>
+    <div class="form-row">
+        <label style="width:100%; border-bottom: 1px solid #eee;">Unipi 1.1 Relay Output</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-addressdo"><i class="fa fa-list"></i> Address <b>&nbsp;Q<b></label>
+        <input id="node-input-addressdo" placeholder="Address" value=0 input type="number" min="0" max="999" required style="width: auto;">
+    </div>
+    <div class="form-row">
+        <label style="width:100%; border-bottom: 1px solid #eee;">Unipi 1.1 Analog Input</label>
+    </div>
+    <div class="form-row">
+        <label for="node-input-addressai"><i class="fa fa-list"></i> Address <b>&nbsp;IA<b></label>
+        <input id="node-input-addressai" placeholder="Address" value=0 input type="number" min="0" max="999" required style="width: auto;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode0"><i class="fa fa-retweet"></i> AI1 Mode</label>
+        <select type="text" id="node-input-mode0" style="width: auto;">
+            <option value="0">12bit</option>
+            <option value="1">14bit</option>
+            <option value="2">16bit</option>
+            <option value="3">18bit</option>
+            <option value="99">Disabled</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-factor0"><i class="fa fa-calculator"></i> AI1 Factor</label>
+        <input id="node-input-factor0" placeholder="Factor" input type="text" required style="width: 10em;">
+        <label style="width: auto;"> Offset</label>
+        <input id="node-input-offset0" placeholder="Offset" input type="text" required style="width: 10em;">
+    </div>
+    <div class="form-row">
+        <label for="node-input-mode1"><i class="fa fa-retweet"></i> AI2 Mode</label>
+        <select type="text" id="node-input-mode1" style="width: auto;">
+            <option value="0">12bit</option>
+            <option value="1">14bit</option>
+            <option value="2">16bit</option>
+            <option value="3">18bit</option>
+            <option value="99">Disabled</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-factor1"><i class="fa fa-calculator"></i> AI2 Factor</label>
+        <input id="node-input-factor1" placeholder="Factor" input type="text" required style="width: 10em;">
+        <label style="width: auto;"> Offset</label>
+        <input id="node-input-offset1" placeholder="Offset" input type="text" required style="width: 10em;">
+    </div>
+    <div class="form-row">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-disableai" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-disableai" style="width: 70%;"> Disable AI</label>
+    </div>
+</script>
