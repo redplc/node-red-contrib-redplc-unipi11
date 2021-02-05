@@ -5,6 +5,8 @@ redPlc module node for Unipi 1.1.<br>
 ## Install
 [redPlc use this module node. Install redPlc.](https://www.npmjs.com/package/node-red-contrib-redplc)
 
+[If you use this node for other nodes install this.](https://www.npmjs.com/package/node-red-contrib-redplc-module)
+
 Install with Node-Red Palette Manager or npm command:
 ```
 cd ~/.node-red
