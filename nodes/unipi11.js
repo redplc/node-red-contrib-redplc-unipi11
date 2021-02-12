@@ -104,6 +104,7 @@ module.exports = function(RED) {
 
 		if (!node.iserror && !node.disableai) {
 			sysmoduleai.setmodeAI(0, node.mode0, node.mode1, AI_MODE_DISABLED, AI_MODE_DISABLED);
+			sysmoduleai.setgainAI(0, 0, 0, 0, 0);
 			if (!sysmoduleai.initAI(0))
 				node.iserror = syslib.outError(node, "init AI", "error on init AI");
 		}

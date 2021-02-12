@@ -1,7 +1,7 @@
 {
   "name": "node-red-contrib-redplc-unipi11",
-  "version": "1.0.9",
-  "description": "redPlc Unipi 1.1 Module",
+  "version": "1.0.10",
+  "description": "Node-Red node for Unipi 1.1",
 
   "dependencies": {
   },
@@ -12,7 +12,7 @@
   },
 
   "license": "Apache-2.0",
-  "keywords": ["node-red", "raspberry pi", "rpi", "unipi11", "unipi", "iot", "iiot", "digital", "analog", "plc", "redplc", "control"],
+  "keywords": ["node-red", "raspberry pi", "rpi", "unipi11", "unipi 1.1", "iot", "iiot", "digital", "analog", "plc", "redplc", "control"],
 
   "node-red": {
     "nodes": {
